@@ -1,0 +1,1294 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="Хранилище NbacontModel" Provider="MySql.Data.MySqlClient" ProviderManifestToken="5.7" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="ActionType">
+          <Key>
+            <PropertyRef Name="idActionType" />
+          </Key>
+          <Property Name="idActionType" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="varchar" MaxLength="45" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Admin">
+          <Key>
+            <PropertyRef Name="idAdmin" />
+          </Key>
+          <Property Name="idAdmin" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Phone" Type="varchar" MaxLength="45" Nullable="false" />
+          <Property Name="Name" Type="varchar" MaxLength="45" Nullable="false" />
+          <Property Name="Password" Type="varchar" MaxLength="45" Nullable="false" />
+          <Property Name="Gender" Type="varchar" MaxLength="10" Nullable="false" />
+          <Property Name="DateOfBirth" Type="varchar" MaxLength="25" Nullable="false" />
+          <Property Name="Email" Type="varchar" MaxLength="20" />
+          <Property Name="Role_Role" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Conferense">
+          <Key>
+            <PropertyRef Name="idConferense" />
+          </Key>
+          <Property Name="idConferense" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="varchar" MaxLength="45" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Country">
+          <Key>
+            <PropertyRef Name="idCountry" />
+          </Key>
+          <Property Name="CountryCode" Type="varchar" MaxLength="11" Nullable="false" />
+          <Property Name="name" Type="varchar" MaxLength="45" Nullable="false" />
+          <Property Name="idCountry" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Division">
+          <Key>
+            <PropertyRef Name="idDivision" />
+          </Key>
+          <Property Name="idDivision" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="varchar" MaxLength="45" Nullable="false" />
+          <Property Name="Conferense_idConferense" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="MatchUp">
+          <Key>
+            <PropertyRef Name="idMatchUp" />
+          </Key>
+          <Property Name="idMatchUp" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Starttime" Type="varchar" MaxLength="45" Nullable="false" />
+          <Property Name="Team_Away_Score" Type="int" Nullable="false" />
+          <Property Name="Team_Home_Score" Type="int" Nullable="false" />
+          <Property Name="Location" Type="varchar" MaxLength="45" />
+          <Property Name="Status" Type="int" Nullable="false" />
+          <Property Name="CurrentQuarter" Type="varchar" MaxLength="45" Nullable="false" />
+          <Property Name="Team_Away" Type="int" Nullable="false" />
+          <Property Name="Team_Home" Type="int" Nullable="false" />
+          <Property Name="Season_idSeason" Type="int" Nullable="false" />
+          <Property Name="MatchUpType_idMatchUpType" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="MatchUpDetail">
+          <Key>
+            <PropertyRef Name="idMatchUpDetail" />
+          </Key>
+          <Property Name="idMatchUpDetail" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Quarter" Type="int" Nullable="false" />
+          <Property Name="MatchUp_idMatchUp" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="MatchUpLog">
+          <Key>
+            <PropertyRef Name="idMatchUpLog" />
+          </Key>
+          <Property Name="idMatchUpLog" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Quarter" Type="int" Nullable="false" />
+          <Property Name="OccurTime" Type="varchar" MaxLength="10" Nullable="false" />
+          <Property Name="Remar" Type="varchar" MaxLength="300" />
+          <Property Name="MatchUp_idMatchUp" Type="int" Nullable="false" />
+          <Property Name="Team_idTeam" Type="int" Nullable="false" />
+          <Property Name="Player_idPlayer" Type="int" Nullable="false" />
+          <Property Name="ActionType_idActionType" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="MatchUpType">
+          <Key>
+            <PropertyRef Name="idMatchUpType" />
+          </Key>
+          <Property Name="idMatchUpType" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="varchar" MaxLength="45" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Picture">
+          <Key>
+            <PropertyRef Name="idPicture" />
+          </Key>
+          <Property Name="idPicture" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Img" Type="varchar" MaxLength="45" Nullable="false" />
+          <Property Name="Descriotion" Type="varchar" MaxLength="45" />
+          <Property Name="NumberOfLike" Type="int" Nullable="false" />
+          <Property Name="CreateTime" Type="varchar" MaxLength="45" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Player">
+          <Key>
+            <PropertyRef Name="idPlayer" />
+          </Key>
+          <Property Name="idPlayer" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="varchar" MaxLength="45" Nullable="false" />
+          <Property Name="JoinYear" Type="varchar" MaxLength="45" Nullable="false" />
+          <Property Name="Height" Type="float" Nullable="false" />
+          <Property Name="Weight" Type="float" Nullable="false" />
+          <Property Name="DateOfBirth" Type="varchar" MaxLength="45" Nullable="false" />
+          <Property Name="College" Type="varchar" MaxLength="45" />
+          <Property Name="img" Type="varchar" MaxLength="45" />
+          <Property Name="IsRet" Type="varchar" MaxLength="45" />
+          <Property Name="RetrimentTime" Type="varchar" MaxLength="44" />
+          <Property Name="CountryCode" Type="varchar" MaxLength="15" Nullable="false" />
+          <Property Name="Position_idPosition" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="PlayerStatistics">
+          <Key>
+            <PropertyRef Name="idPlayerStatistics" />
+          </Key>
+          <Property Name="idPlayerStatistics" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="IsStarting" Type="int" Nullable="false" />
+          <Property Name="Min" Type="int" Nullable="false" />
+          <Property Name="Point" Type="int" Nullable="false" />
+          <Property Name="Assist" Type="int" Nullable="false" />
+          <Property Name="FieldGoalMade" Type="int" Nullable="false" />
+          <Property Name="FieldGoalMissed" Type="int" Nullable="false" />
+          <Property Name="3-PointFieldGoalMade" Type="int" Nullable="false" />
+          <Property Name="3-pointFieldGoalMissed" Type="int" Nullable="false" />
+          <Property Name="FreethrowMade" Type="int" Nullable="false" />
+          <Property Name="FreethrowMissed" Type="int" Nullable="false" />
+          <Property Name="Rebound" Type="int" Nullable="false" />
+          <Property Name="OFFR" Type="int" Nullable="false" />
+          <Property Name="DFFR" Type="int" Nullable="false" />
+          <Property Name="Steal" Type="int" Nullable="false" />
+          <Property Name="Block" Type="int" Nullable="false" />
+          <Property Name="Turnover" Type="int" Nullable="false" />
+          <Property Name="Foul" Type="int" Nullable="false" />
+          <Property Name="MatchUp_idMatchUp" Type="int" Nullable="false" />
+          <Property Name="Team_idTeam" Type="int" Nullable="false" />
+          <Property Name="PlayerTeam_idPlayerTeam" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="PlayerTeam">
+          <Key>
+            <PropertyRef Name="idPlayerTeam" />
+          </Key>
+          <Property Name="idPlayerTeam" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ShirtNumber" Type="varchar" MaxLength="45" Nullable="false" />
+          <Property Name="Salary" Type="decimal" Precision="10" Scale="2" Nullable="false" />
+          <Property Name="StarterIndezx" Type="int" Nullable="false" />
+          <Property Name="Player_idPlayer" Type="int" Nullable="false" />
+          <Property Name="Team_idTeam" Type="int" Nullable="false" />
+          <Property Name="Season_idSeason" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Position">
+          <Key>
+            <PropertyRef Name="idPosition" />
+          </Key>
+          <Property Name="idPosition" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="varchar" MaxLength="45" Nullable="false" />
+          <Property Name="abbr" Type="char" MaxLength="3" Nullable="false" />
+        </EntityType>
+        <EntityType Name="PostSeason">
+          <Key>
+            <PropertyRef Name="idPostSeason" />
+          </Key>
+          <Property Name="idPostSeason" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Rank" Type="int" />
+          <Property Name="Season_idSeason" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Role">
+          <Key>
+            <PropertyRef Name="Role" />
+          </Key>
+          <Property Name="Role" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="varchar" MaxLength="45" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Season">
+          <Key>
+            <PropertyRef Name="idSeason" />
+          </Key>
+          <Property Name="idSeason" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="varchar" MaxLength="45" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Team">
+          <Key>
+            <PropertyRef Name="idTeam" />
+          </Key>
+          <Property Name="idTeam" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="varchar" MaxLength="45" Nullable="false" />
+          <Property Name="Coach" Type="varchar" MaxLength="45" Nullable="false" />
+          <Property Name="Abbr" Type="varchar" MaxLength="45" Nullable="false" />
+          <Property Name="Stadium" Type="varchar" MaxLength="45" />
+          <Property Name="Logo" Type="varchar" MaxLength="45" />
+          <Property Name="Division_idDivision" Type="int" Nullable="false" />
+        </EntityType>
+        <Association Name="fk_Admin_Role">
+          <End Role="Role" Type="Self.Role" Multiplicity="1" />
+          <End Role="Admin" Type="Self.Admin" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Role">
+              <PropertyRef Name="Role" />
+            </Principal>
+            <Dependent Role="Admin">
+              <PropertyRef Name="Role_Role" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_Division_Conferense1">
+          <End Role="Conferense" Type="Self.Conferense" Multiplicity="1" />
+          <End Role="Division" Type="Self.Division" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Conferense">
+              <PropertyRef Name="idConferense" />
+            </Principal>
+            <Dependent Role="Division">
+              <PropertyRef Name="Conferense_idConferense" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_MatchUp_MatchUpType1">
+          <End Role="MatchUpType" Type="Self.MatchUpType" Multiplicity="1" />
+          <End Role="MatchUp" Type="Self.MatchUp" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="MatchUpType">
+              <PropertyRef Name="idMatchUpType" />
+            </Principal>
+            <Dependent Role="MatchUp">
+              <PropertyRef Name="MatchUpType_idMatchUpType" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_MatchUp_Season1">
+          <End Role="Season" Type="Self.Season" Multiplicity="1" />
+          <End Role="MatchUp" Type="Self.MatchUp" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Season">
+              <PropertyRef Name="idSeason" />
+            </Principal>
+            <Dependent Role="MatchUp">
+              <PropertyRef Name="Season_idSeason" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_MatchUpDetail_MatchUp1">
+          <End Role="MatchUp" Type="Self.MatchUp" Multiplicity="1" />
+          <End Role="MatchUpDetail" Type="Self.MatchUpDetail" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="MatchUp">
+              <PropertyRef Name="idMatchUp" />
+            </Principal>
+            <Dependent Role="MatchUpDetail">
+              <PropertyRef Name="MatchUp_idMatchUp" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_MatchUpLog_ActionType1">
+          <End Role="ActionType" Type="Self.ActionType" Multiplicity="1" />
+          <End Role="MatchUpLog" Type="Self.MatchUpLog" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ActionType">
+              <PropertyRef Name="idActionType" />
+            </Principal>
+            <Dependent Role="MatchUpLog">
+              <PropertyRef Name="ActionType_idActionType" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_MatchUpLog_MatchUp1">
+          <End Role="MatchUp" Type="Self.MatchUp" Multiplicity="1" />
+          <End Role="MatchUpLog" Type="Self.MatchUpLog" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="MatchUp">
+              <PropertyRef Name="idMatchUp" />
+            </Principal>
+            <Dependent Role="MatchUpLog">
+              <PropertyRef Name="MatchUp_idMatchUp" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_MatchUpLog_Player1">
+          <End Role="Player" Type="Self.Player" Multiplicity="1" />
+          <End Role="MatchUpLog" Type="Self.MatchUpLog" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Player">
+              <PropertyRef Name="idPlayer" />
+            </Principal>
+            <Dependent Role="MatchUpLog">
+              <PropertyRef Name="Player_idPlayer" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_MatchUpLog_Team1">
+          <End Role="Team" Type="Self.Team" Multiplicity="1" />
+          <End Role="MatchUpLog" Type="Self.MatchUpLog" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Team">
+              <PropertyRef Name="idTeam" />
+            </Principal>
+            <Dependent Role="MatchUpLog">
+              <PropertyRef Name="Team_idTeam" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_Player_Position1">
+          <End Role="Position" Type="Self.Position" Multiplicity="1" />
+          <End Role="Player" Type="Self.Player" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Position">
+              <PropertyRef Name="idPosition" />
+            </Principal>
+            <Dependent Role="Player">
+              <PropertyRef Name="Position_idPosition" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_PlayerStatistics_MatchUp1">
+          <End Role="MatchUp" Type="Self.MatchUp" Multiplicity="1" />
+          <End Role="PlayerStatistics" Type="Self.PlayerStatistics" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="MatchUp">
+              <PropertyRef Name="idMatchUp" />
+            </Principal>
+            <Dependent Role="PlayerStatistics">
+              <PropertyRef Name="MatchUp_idMatchUp" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_PlayerStatistics_PlayerTeam1">
+          <End Role="PlayerTeam" Type="Self.PlayerTeam" Multiplicity="1" />
+          <End Role="PlayerStatistics" Type="Self.PlayerStatistics" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PlayerTeam">
+              <PropertyRef Name="idPlayerTeam" />
+            </Principal>
+            <Dependent Role="PlayerStatistics">
+              <PropertyRef Name="PlayerTeam_idPlayerTeam" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_PlayerStatistics_Team1">
+          <End Role="Team" Type="Self.Team" Multiplicity="1" />
+          <End Role="PlayerStatistics" Type="Self.PlayerStatistics" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Team">
+              <PropertyRef Name="idTeam" />
+            </Principal>
+            <Dependent Role="PlayerStatistics">
+              <PropertyRef Name="Team_idTeam" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_PlayerTeam_Player1">
+          <End Role="Player" Type="Self.Player" Multiplicity="1" />
+          <End Role="PlayerTeam" Type="Self.PlayerTeam" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Player">
+              <PropertyRef Name="idPlayer" />
+            </Principal>
+            <Dependent Role="PlayerTeam">
+              <PropertyRef Name="Player_idPlayer" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_PlayerTeam_Season1">
+          <End Role="Season" Type="Self.Season" Multiplicity="1" />
+          <End Role="PlayerTeam" Type="Self.PlayerTeam" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Season">
+              <PropertyRef Name="idSeason" />
+            </Principal>
+            <Dependent Role="PlayerTeam">
+              <PropertyRef Name="Season_idSeason" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_PlayerTeam_Team1">
+          <End Role="Team" Type="Self.Team" Multiplicity="1" />
+          <End Role="PlayerTeam" Type="Self.PlayerTeam" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Team">
+              <PropertyRef Name="idTeam" />
+            </Principal>
+            <Dependent Role="PlayerTeam">
+              <PropertyRef Name="Team_idTeam" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_PostSeason_Season1">
+          <End Role="Season" Type="Self.Season" Multiplicity="1" />
+          <End Role="PostSeason" Type="Self.PostSeason" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Season">
+              <PropertyRef Name="idSeason" />
+            </Principal>
+            <Dependent Role="PostSeason">
+              <PropertyRef Name="Season_idSeason" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_Team_Division1">
+          <End Role="Division" Type="Self.Division" Multiplicity="1" />
+          <End Role="Team" Type="Self.Team" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Division">
+              <PropertyRef Name="idDivision" />
+            </Principal>
+            <Dependent Role="Team">
+              <PropertyRef Name="Division_idDivision" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="Хранилище NbacontModelContainer">
+          <EntitySet Name="ActionType" EntityType="Self.ActionType" Schema="nbacont" store:Type="Tables" />
+          <EntitySet Name="Admin" EntityType="Self.Admin" Schema="nbacont" store:Type="Tables" />
+          <EntitySet Name="Conferense" EntityType="Self.Conferense" Schema="nbacont" store:Type="Tables" />
+          <EntitySet Name="Country" EntityType="Self.Country" Schema="nbacont" store:Type="Tables" />
+          <EntitySet Name="Division" EntityType="Self.Division" Schema="nbacont" store:Type="Tables" />
+          <EntitySet Name="MatchUp" EntityType="Self.MatchUp" Schema="nbacont" store:Type="Tables" />
+          <EntitySet Name="MatchUpDetail" EntityType="Self.MatchUpDetail" Schema="nbacont" store:Type="Tables" />
+          <EntitySet Name="MatchUpLog" EntityType="Self.MatchUpLog" Schema="nbacont" store:Type="Tables" />
+          <EntitySet Name="MatchUpType" EntityType="Self.MatchUpType" Schema="nbacont" store:Type="Tables" />
+          <EntitySet Name="Picture" EntityType="Self.Picture" Schema="nbacont" store:Type="Tables" />
+          <EntitySet Name="Player" EntityType="Self.Player" Schema="nbacont" store:Type="Tables" />
+          <EntitySet Name="PlayerStatistics" EntityType="Self.PlayerStatistics" Schema="nbacont" store:Type="Tables" />
+          <EntitySet Name="PlayerTeam" EntityType="Self.PlayerTeam" Schema="nbacont" store:Type="Tables" />
+          <EntitySet Name="Position" EntityType="Self.Position" Schema="nbacont" store:Type="Tables" />
+          <EntitySet Name="PostSeason" EntityType="Self.PostSeason" Schema="nbacont" store:Type="Tables" />
+          <EntitySet Name="Role" EntityType="Self.Role" Schema="nbacont" store:Type="Tables" />
+          <EntitySet Name="Season" EntityType="Self.Season" Schema="nbacont" store:Type="Tables" />
+          <EntitySet Name="Team" EntityType="Self.Team" Schema="nbacont" store:Type="Tables" />
+          <AssociationSet Name="fk_Admin_Role" Association="Self.fk_Admin_Role">
+            <End Role="Role" EntitySet="Role" />
+            <End Role="Admin" EntitySet="Admin" />
+          </AssociationSet>
+          <AssociationSet Name="fk_Division_Conferense1" Association="Self.fk_Division_Conferense1">
+            <End Role="Conferense" EntitySet="Conferense" />
+            <End Role="Division" EntitySet="Division" />
+          </AssociationSet>
+          <AssociationSet Name="fk_MatchUp_MatchUpType1" Association="Self.fk_MatchUp_MatchUpType1">
+            <End Role="MatchUpType" EntitySet="MatchUpType" />
+            <End Role="MatchUp" EntitySet="MatchUp" />
+          </AssociationSet>
+          <AssociationSet Name="fk_MatchUp_Season1" Association="Self.fk_MatchUp_Season1">
+            <End Role="Season" EntitySet="Season" />
+            <End Role="MatchUp" EntitySet="MatchUp" />
+          </AssociationSet>
+          <AssociationSet Name="fk_MatchUpDetail_MatchUp1" Association="Self.fk_MatchUpDetail_MatchUp1">
+            <End Role="MatchUp" EntitySet="MatchUp" />
+            <End Role="MatchUpDetail" EntitySet="MatchUpDetail" />
+          </AssociationSet>
+          <AssociationSet Name="fk_MatchUpLog_ActionType1" Association="Self.fk_MatchUpLog_ActionType1">
+            <End Role="ActionType" EntitySet="ActionType" />
+            <End Role="MatchUpLog" EntitySet="MatchUpLog" />
+          </AssociationSet>
+          <AssociationSet Name="fk_MatchUpLog_MatchUp1" Association="Self.fk_MatchUpLog_MatchUp1">
+            <End Role="MatchUp" EntitySet="MatchUp" />
+            <End Role="MatchUpLog" EntitySet="MatchUpLog" />
+          </AssociationSet>
+          <AssociationSet Name="fk_MatchUpLog_Player1" Association="Self.fk_MatchUpLog_Player1">
+            <End Role="Player" EntitySet="Player" />
+            <End Role="MatchUpLog" EntitySet="MatchUpLog" />
+          </AssociationSet>
+          <AssociationSet Name="fk_MatchUpLog_Team1" Association="Self.fk_MatchUpLog_Team1">
+            <End Role="Team" EntitySet="Team" />
+            <End Role="MatchUpLog" EntitySet="MatchUpLog" />
+          </AssociationSet>
+          <AssociationSet Name="fk_Player_Position1" Association="Self.fk_Player_Position1">
+            <End Role="Position" EntitySet="Position" />
+            <End Role="Player" EntitySet="Player" />
+          </AssociationSet>
+          <AssociationSet Name="fk_PlayerStatistics_MatchUp1" Association="Self.fk_PlayerStatistics_MatchUp1">
+            <End Role="MatchUp" EntitySet="MatchUp" />
+            <End Role="PlayerStatistics" EntitySet="PlayerStatistics" />
+          </AssociationSet>
+          <AssociationSet Name="fk_PlayerStatistics_PlayerTeam1" Association="Self.fk_PlayerStatistics_PlayerTeam1">
+            <End Role="PlayerTeam" EntitySet="PlayerTeam" />
+            <End Role="PlayerStatistics" EntitySet="PlayerStatistics" />
+          </AssociationSet>
+          <AssociationSet Name="fk_PlayerStatistics_Team1" Association="Self.fk_PlayerStatistics_Team1">
+            <End Role="Team" EntitySet="Team" />
+            <End Role="PlayerStatistics" EntitySet="PlayerStatistics" />
+          </AssociationSet>
+          <AssociationSet Name="fk_PlayerTeam_Player1" Association="Self.fk_PlayerTeam_Player1">
+            <End Role="Player" EntitySet="Player" />
+            <End Role="PlayerTeam" EntitySet="PlayerTeam" />
+          </AssociationSet>
+          <AssociationSet Name="fk_PlayerTeam_Season1" Association="Self.fk_PlayerTeam_Season1">
+            <End Role="Season" EntitySet="Season" />
+            <End Role="PlayerTeam" EntitySet="PlayerTeam" />
+          </AssociationSet>
+          <AssociationSet Name="fk_PlayerTeam_Team1" Association="Self.fk_PlayerTeam_Team1">
+            <End Role="Team" EntitySet="Team" />
+            <End Role="PlayerTeam" EntitySet="PlayerTeam" />
+          </AssociationSet>
+          <AssociationSet Name="fk_PostSeason_Season1" Association="Self.fk_PostSeason_Season1">
+            <End Role="Season" EntitySet="Season" />
+            <End Role="PostSeason" EntitySet="PostSeason" />
+          </AssociationSet>
+          <AssociationSet Name="fk_Team_Division1" Association="Self.fk_Team_Division1">
+            <End Role="Division" EntitySet="Division" />
+            <End Role="Team" EntitySet="Team" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="NbacontModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="ActionType">
+          <Key>
+            <PropertyRef Name="idActionType" />
+          </Key>
+          <Property Name="idActionType" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="45" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="MatchUpLog" Relationship="Self.fk_MatchUpLog_ActionType1" FromRole="ActionType" ToRole="MatchUpLog" />
+        </EntityType>
+        <EntityType Name="Admin">
+          <Key>
+            <PropertyRef Name="idAdmin" />
+          </Key>
+          <Property Name="idAdmin" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Phone" Type="String" MaxLength="45" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Name" Type="String" MaxLength="45" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Password" Type="String" MaxLength="45" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Gender" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="DateOfBirth" Type="String" MaxLength="25" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Email" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="Role_Role" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Role" Relationship="Self.fk_Admin_Role" FromRole="Admin" ToRole="Role" />
+        </EntityType>
+        <EntityType Name="Conferense">
+          <Key>
+            <PropertyRef Name="idConferense" />
+          </Key>
+          <Property Name="idConferense" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="45" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="Division" Relationship="Self.fk_Division_Conferense1" FromRole="Conferense" ToRole="Division" />
+        </EntityType>
+        <EntityType Name="Country">
+          <Key>
+            <PropertyRef Name="idCountry" />
+          </Key>
+          <Property Name="CountryCode" Type="String" MaxLength="11" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="name" Type="String" MaxLength="45" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="idCountry" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+        </EntityType>
+        <EntityType Name="Division">
+          <Key>
+            <PropertyRef Name="idDivision" />
+          </Key>
+          <Property Name="idDivision" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="45" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Conferense_idConferense" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Conferense" Relationship="Self.fk_Division_Conferense1" FromRole="Division" ToRole="Conferense" />
+          <NavigationProperty Name="Team" Relationship="Self.fk_Team_Division1" FromRole="Division" ToRole="Team" />
+        </EntityType>
+        <EntityType Name="MatchUp">
+          <Key>
+            <PropertyRef Name="idMatchUp" />
+          </Key>
+          <Property Name="idMatchUp" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Starttime" Type="String" MaxLength="45" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Team_Away_Score" Type="Int32" Nullable="false" />
+          <Property Name="Team_Home_Score" Type="Int32" Nullable="false" />
+          <Property Name="Location" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
+          <Property Name="Status" Type="Int32" Nullable="false" />
+          <Property Name="CurrentQuarter" Type="String" MaxLength="45" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Team_Away" Type="Int32" Nullable="false" />
+          <Property Name="Team_Home" Type="Int32" Nullable="false" />
+          <Property Name="Season_idSeason" Type="Int32" Nullable="false" />
+          <Property Name="MatchUpType_idMatchUpType" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="MatchUpType" Relationship="Self.fk_MatchUp_MatchUpType1" FromRole="MatchUp" ToRole="MatchUpType" />
+          <NavigationProperty Name="Season" Relationship="Self.fk_MatchUp_Season1" FromRole="MatchUp" ToRole="Season" />
+          <NavigationProperty Name="MatchUpDetail" Relationship="Self.fk_MatchUpDetail_MatchUp1" FromRole="MatchUp" ToRole="MatchUpDetail" />
+          <NavigationProperty Name="MatchUpLog" Relationship="Self.fk_MatchUpLog_MatchUp1" FromRole="MatchUp" ToRole="MatchUpLog" />
+          <NavigationProperty Name="PlayerStatistics" Relationship="Self.fk_PlayerStatistics_MatchUp1" FromRole="MatchUp" ToRole="PlayerStatistics" />
+        </EntityType>
+        <EntityType Name="MatchUpDetail">
+          <Key>
+            <PropertyRef Name="idMatchUpDetail" />
+          </Key>
+          <Property Name="idMatchUpDetail" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Quarter" Type="Int32" Nullable="false" />
+          <Property Name="MatchUp_idMatchUp" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="MatchUp" Relationship="Self.fk_MatchUpDetail_MatchUp1" FromRole="MatchUpDetail" ToRole="MatchUp" />
+        </EntityType>
+        <EntityType Name="MatchUpLog">
+          <Key>
+            <PropertyRef Name="idMatchUpLog" />
+          </Key>
+          <Property Name="idMatchUpLog" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Quarter" Type="Int32" Nullable="false" />
+          <Property Name="OccurTime" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Remar" Type="String" MaxLength="300" FixedLength="false" Unicode="false" />
+          <Property Name="MatchUp_idMatchUp" Type="Int32" Nullable="false" />
+          <Property Name="Team_idTeam" Type="Int32" Nullable="false" />
+          <Property Name="Player_idPlayer" Type="Int32" Nullable="false" />
+          <Property Name="ActionType_idActionType" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="ActionType" Relationship="Self.fk_MatchUpLog_ActionType1" FromRole="MatchUpLog" ToRole="ActionType" />
+          <NavigationProperty Name="MatchUp" Relationship="Self.fk_MatchUpLog_MatchUp1" FromRole="MatchUpLog" ToRole="MatchUp" />
+          <NavigationProperty Name="Player" Relationship="Self.fk_MatchUpLog_Player1" FromRole="MatchUpLog" ToRole="Player" />
+          <NavigationProperty Name="Team" Relationship="Self.fk_MatchUpLog_Team1" FromRole="MatchUpLog" ToRole="Team" />
+        </EntityType>
+        <EntityType Name="MatchUpType">
+          <Key>
+            <PropertyRef Name="idMatchUpType" />
+          </Key>
+          <Property Name="idMatchUpType" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="45" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="MatchUp" Relationship="Self.fk_MatchUp_MatchUpType1" FromRole="MatchUpType" ToRole="MatchUp" />
+        </EntityType>
+        <EntityType Name="Picture">
+          <Key>
+            <PropertyRef Name="idPicture" />
+          </Key>
+          <Property Name="idPicture" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Img" Type="String" MaxLength="45" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Descriotion" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
+          <Property Name="NumberOfLike" Type="Int32" Nullable="false" />
+          <Property Name="CreateTime" Type="String" MaxLength="45" FixedLength="false" Unicode="false" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Player">
+          <Key>
+            <PropertyRef Name="idPlayer" />
+          </Key>
+          <Property Name="idPlayer" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="45" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="JoinYear" Type="String" MaxLength="45" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Height" Type="Single" Nullable="false" />
+          <Property Name="Weight" Type="Single" Nullable="false" />
+          <Property Name="DateOfBirth" Type="String" MaxLength="45" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="College" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
+          <Property Name="img" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
+          <Property Name="IsRet" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
+          <Property Name="RetrimentTime" Type="String" MaxLength="44" FixedLength="false" Unicode="false" />
+          <Property Name="CountryCode" Type="String" MaxLength="15" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Position_idPosition" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="MatchUpLog" Relationship="Self.fk_MatchUpLog_Player1" FromRole="Player" ToRole="MatchUpLog" />
+          <NavigationProperty Name="Position" Relationship="Self.fk_Player_Position1" FromRole="Player" ToRole="Position" />
+          <NavigationProperty Name="PlayerTeam" Relationship="Self.fk_PlayerTeam_Player1" FromRole="Player" ToRole="PlayerTeam" />
+        </EntityType>
+        <EntityType Name="PlayerStatistics">
+          <Key>
+            <PropertyRef Name="idPlayerStatistics" />
+          </Key>
+          <Property Name="idPlayerStatistics" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="IsStarting" Type="Int32" Nullable="false" />
+          <Property Name="Min" Type="Int32" Nullable="false" />
+          <Property Name="Point" Type="Int32" Nullable="false" />
+          <Property Name="Assist" Type="Int32" Nullable="false" />
+          <Property Name="FieldGoalMade" Type="Int32" Nullable="false" />
+          <Property Name="FieldGoalMissed" Type="Int32" Nullable="false" />
+          <Property Name="C3_PointFieldGoalMade" Type="Int32" Nullable="false" />
+          <Property Name="C3_pointFieldGoalMissed" Type="Int32" Nullable="false" />
+          <Property Name="FreethrowMade" Type="Int32" Nullable="false" />
+          <Property Name="FreethrowMissed" Type="Int32" Nullable="false" />
+          <Property Name="Rebound" Type="Int32" Nullable="false" />
+          <Property Name="OFFR" Type="Int32" Nullable="false" />
+          <Property Name="DFFR" Type="Int32" Nullable="false" />
+          <Property Name="Steal" Type="Int32" Nullable="false" />
+          <Property Name="Block" Type="Int32" Nullable="false" />
+          <Property Name="Turnover" Type="Int32" Nullable="false" />
+          <Property Name="Foul" Type="Int32" Nullable="false" />
+          <Property Name="MatchUp_idMatchUp" Type="Int32" Nullable="false" />
+          <Property Name="Team_idTeam" Type="Int32" Nullable="false" />
+          <Property Name="PlayerTeam_idPlayerTeam" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="MatchUp" Relationship="Self.fk_PlayerStatistics_MatchUp1" FromRole="PlayerStatistics" ToRole="MatchUp" />
+          <NavigationProperty Name="PlayerTeam" Relationship="Self.fk_PlayerStatistics_PlayerTeam1" FromRole="PlayerStatistics" ToRole="PlayerTeam" />
+          <NavigationProperty Name="Team" Relationship="Self.fk_PlayerStatistics_Team1" FromRole="PlayerStatistics" ToRole="Team" />
+        </EntityType>
+        <EntityType Name="PlayerTeam">
+          <Key>
+            <PropertyRef Name="idPlayerTeam" />
+          </Key>
+          <Property Name="idPlayerTeam" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ShirtNumber" Type="String" MaxLength="45" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Salary" Type="Decimal" Nullable="false" />
+          <Property Name="StarterIndezx" Type="Int32" Nullable="false" />
+          <Property Name="Player_idPlayer" Type="Int32" Nullable="false" />
+          <Property Name="Team_idTeam" Type="Int32" Nullable="false" />
+          <Property Name="Season_idSeason" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Player" Relationship="Self.fk_PlayerTeam_Player1" FromRole="PlayerTeam" ToRole="Player" />
+          <NavigationProperty Name="PlayerStatistics" Relationship="Self.fk_PlayerStatistics_PlayerTeam1" FromRole="PlayerTeam" ToRole="PlayerStatistics" />
+          <NavigationProperty Name="Season" Relationship="Self.fk_PlayerTeam_Season1" FromRole="PlayerTeam" ToRole="Season" />
+          <NavigationProperty Name="Team" Relationship="Self.fk_PlayerTeam_Team1" FromRole="PlayerTeam" ToRole="Team" />
+        </EntityType>
+        <EntityType Name="Position">
+          <Key>
+            <PropertyRef Name="idPosition" />
+          </Key>
+          <Property Name="idPosition" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="45" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="abbr" Type="String" MaxLength="3" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="Player" Relationship="Self.fk_Player_Position1" FromRole="Position" ToRole="Player" />
+        </EntityType>
+        <EntityType Name="PostSeason">
+          <Key>
+            <PropertyRef Name="idPostSeason" />
+          </Key>
+          <Property Name="idPostSeason" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Rank" Type="Int32" />
+          <Property Name="Season_idSeason" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Season" Relationship="Self.fk_PostSeason_Season1" FromRole="PostSeason" ToRole="Season" />
+        </EntityType>
+        <EntityType Name="Role">
+          <Key>
+            <PropertyRef Name="Role1" />
+          </Key>
+          <Property Name="Role1" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="45" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="Admin" Relationship="Self.fk_Admin_Role" FromRole="Role" ToRole="Admin" />
+        </EntityType>
+        <EntityType Name="Season">
+          <Key>
+            <PropertyRef Name="idSeason" />
+          </Key>
+          <Property Name="idSeason" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="45" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="MatchUp" Relationship="Self.fk_MatchUp_Season1" FromRole="Season" ToRole="MatchUp" />
+          <NavigationProperty Name="PlayerTeam" Relationship="Self.fk_PlayerTeam_Season1" FromRole="Season" ToRole="PlayerTeam" />
+          <NavigationProperty Name="PostSeason" Relationship="Self.fk_PostSeason_Season1" FromRole="Season" ToRole="PostSeason" />
+        </EntityType>
+        <EntityType Name="Team">
+          <Key>
+            <PropertyRef Name="idTeam" />
+          </Key>
+          <Property Name="idTeam" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="45" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Coach" Type="String" MaxLength="45" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Abbr" Type="String" MaxLength="45" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Stadium" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
+          <Property Name="Logo" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
+          <Property Name="Division_idDivision" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Division" Relationship="Self.fk_Team_Division1" FromRole="Team" ToRole="Division" />
+          <NavigationProperty Name="MatchUpLog" Relationship="Self.fk_MatchUpLog_Team1" FromRole="Team" ToRole="MatchUpLog" />
+          <NavigationProperty Name="PlayerStatistics" Relationship="Self.fk_PlayerStatistics_Team1" FromRole="Team" ToRole="PlayerStatistics" />
+          <NavigationProperty Name="PlayerTeam" Relationship="Self.fk_PlayerTeam_Team1" FromRole="Team" ToRole="PlayerTeam" />
+        </EntityType>
+        <Association Name="fk_MatchUpLog_ActionType1">
+          <End Role="ActionType" Type="Self.ActionType" Multiplicity="1" />
+          <End Role="MatchUpLog" Type="Self.MatchUpLog" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ActionType">
+              <PropertyRef Name="idActionType" />
+            </Principal>
+            <Dependent Role="MatchUpLog">
+              <PropertyRef Name="ActionType_idActionType" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_Admin_Role">
+          <End Role="Role" Type="Self.Role" Multiplicity="1" />
+          <End Role="Admin" Type="Self.Admin" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Role">
+              <PropertyRef Name="Role1" />
+            </Principal>
+            <Dependent Role="Admin">
+              <PropertyRef Name="Role_Role" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_Division_Conferense1">
+          <End Role="Conferense" Type="Self.Conferense" Multiplicity="1" />
+          <End Role="Division" Type="Self.Division" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Conferense">
+              <PropertyRef Name="idConferense" />
+            </Principal>
+            <Dependent Role="Division">
+              <PropertyRef Name="Conferense_idConferense" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_Team_Division1">
+          <End Role="Division" Type="Self.Division" Multiplicity="1" />
+          <End Role="Team" Type="Self.Team" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Division">
+              <PropertyRef Name="idDivision" />
+            </Principal>
+            <Dependent Role="Team">
+              <PropertyRef Name="Division_idDivision" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_MatchUp_MatchUpType1">
+          <End Role="MatchUpType" Type="Self.MatchUpType" Multiplicity="1" />
+          <End Role="MatchUp" Type="Self.MatchUp" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="MatchUpType">
+              <PropertyRef Name="idMatchUpType" />
+            </Principal>
+            <Dependent Role="MatchUp">
+              <PropertyRef Name="MatchUpType_idMatchUpType" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_MatchUp_Season1">
+          <End Role="Season" Type="Self.Season" Multiplicity="1" />
+          <End Role="MatchUp" Type="Self.MatchUp" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Season">
+              <PropertyRef Name="idSeason" />
+            </Principal>
+            <Dependent Role="MatchUp">
+              <PropertyRef Name="Season_idSeason" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_MatchUpDetail_MatchUp1">
+          <End Role="MatchUp" Type="Self.MatchUp" Multiplicity="1" />
+          <End Role="MatchUpDetail" Type="Self.MatchUpDetail" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="MatchUp">
+              <PropertyRef Name="idMatchUp" />
+            </Principal>
+            <Dependent Role="MatchUpDetail">
+              <PropertyRef Name="MatchUp_idMatchUp" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_MatchUpLog_MatchUp1">
+          <End Role="MatchUp" Type="Self.MatchUp" Multiplicity="1" />
+          <End Role="MatchUpLog" Type="Self.MatchUpLog" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="MatchUp">
+              <PropertyRef Name="idMatchUp" />
+            </Principal>
+            <Dependent Role="MatchUpLog">
+              <PropertyRef Name="MatchUp_idMatchUp" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_PlayerStatistics_MatchUp1">
+          <End Role="MatchUp" Type="Self.MatchUp" Multiplicity="1" />
+          <End Role="PlayerStatistics" Type="Self.PlayerStatistics" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="MatchUp">
+              <PropertyRef Name="idMatchUp" />
+            </Principal>
+            <Dependent Role="PlayerStatistics">
+              <PropertyRef Name="MatchUp_idMatchUp" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_MatchUpLog_Player1">
+          <End Role="Player" Type="Self.Player" Multiplicity="1" />
+          <End Role="MatchUpLog" Type="Self.MatchUpLog" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Player">
+              <PropertyRef Name="idPlayer" />
+            </Principal>
+            <Dependent Role="MatchUpLog">
+              <PropertyRef Name="Player_idPlayer" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_MatchUpLog_Team1">
+          <End Role="Team" Type="Self.Team" Multiplicity="1" />
+          <End Role="MatchUpLog" Type="Self.MatchUpLog" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Team">
+              <PropertyRef Name="idTeam" />
+            </Principal>
+            <Dependent Role="MatchUpLog">
+              <PropertyRef Name="Team_idTeam" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_Player_Position1">
+          <End Role="Position" Type="Self.Position" Multiplicity="1" />
+          <End Role="Player" Type="Self.Player" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Position">
+              <PropertyRef Name="idPosition" />
+            </Principal>
+            <Dependent Role="Player">
+              <PropertyRef Name="Position_idPosition" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_PlayerTeam_Player1">
+          <End Role="Player" Type="Self.Player" Multiplicity="1" />
+          <End Role="PlayerTeam" Type="Self.PlayerTeam" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Player">
+              <PropertyRef Name="idPlayer" />
+            </Principal>
+            <Dependent Role="PlayerTeam">
+              <PropertyRef Name="Player_idPlayer" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_PlayerStatistics_PlayerTeam1">
+          <End Role="PlayerTeam" Type="Self.PlayerTeam" Multiplicity="1" />
+          <End Role="PlayerStatistics" Type="Self.PlayerStatistics" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PlayerTeam">
+              <PropertyRef Name="idPlayerTeam" />
+            </Principal>
+            <Dependent Role="PlayerStatistics">
+              <PropertyRef Name="PlayerTeam_idPlayerTeam" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_PlayerStatistics_Team1">
+          <End Role="Team" Type="Self.Team" Multiplicity="1" />
+          <End Role="PlayerStatistics" Type="Self.PlayerStatistics" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Team">
+              <PropertyRef Name="idTeam" />
+            </Principal>
+            <Dependent Role="PlayerStatistics">
+              <PropertyRef Name="Team_idTeam" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_PlayerTeam_Season1">
+          <End Role="Season" Type="Self.Season" Multiplicity="1" />
+          <End Role="PlayerTeam" Type="Self.PlayerTeam" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Season">
+              <PropertyRef Name="idSeason" />
+            </Principal>
+            <Dependent Role="PlayerTeam">
+              <PropertyRef Name="Season_idSeason" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_PlayerTeam_Team1">
+          <End Role="Team" Type="Self.Team" Multiplicity="1" />
+          <End Role="PlayerTeam" Type="Self.PlayerTeam" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Team">
+              <PropertyRef Name="idTeam" />
+            </Principal>
+            <Dependent Role="PlayerTeam">
+              <PropertyRef Name="Team_idTeam" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_PostSeason_Season1">
+          <End Role="Season" Type="Self.Season" Multiplicity="1" />
+          <End Role="PostSeason" Type="Self.PostSeason" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Season">
+              <PropertyRef Name="idSeason" />
+            </Principal>
+            <Dependent Role="PostSeason">
+              <PropertyRef Name="Season_idSeason" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="NbacontEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="ActionType" EntityType="Self.ActionType" />
+          <EntitySet Name="Admin" EntityType="Self.Admin" />
+          <EntitySet Name="Conferense" EntityType="Self.Conferense" />
+          <EntitySet Name="Country" EntityType="Self.Country" />
+          <EntitySet Name="Division" EntityType="Self.Division" />
+          <EntitySet Name="MatchUp" EntityType="Self.MatchUp" />
+          <EntitySet Name="MatchUpDetail" EntityType="Self.MatchUpDetail" />
+          <EntitySet Name="MatchUpLog" EntityType="Self.MatchUpLog" />
+          <EntitySet Name="MatchUpType" EntityType="Self.MatchUpType" />
+          <EntitySet Name="Picture" EntityType="Self.Picture" />
+          <EntitySet Name="Player" EntityType="Self.Player" />
+          <EntitySet Name="PlayerStatistics" EntityType="Self.PlayerStatistics" />
+          <EntitySet Name="PlayerTeam" EntityType="Self.PlayerTeam" />
+          <EntitySet Name="Position" EntityType="Self.Position" />
+          <EntitySet Name="PostSeason" EntityType="Self.PostSeason" />
+          <EntitySet Name="Role" EntityType="Self.Role" />
+          <EntitySet Name="Season" EntityType="Self.Season" />
+          <EntitySet Name="Team" EntityType="Self.Team" />
+          <AssociationSet Name="fk_MatchUpLog_ActionType1" Association="Self.fk_MatchUpLog_ActionType1">
+            <End Role="ActionType" EntitySet="ActionType" />
+            <End Role="MatchUpLog" EntitySet="MatchUpLog" />
+          </AssociationSet>
+          <AssociationSet Name="fk_Admin_Role" Association="Self.fk_Admin_Role">
+            <End Role="Role" EntitySet="Role" />
+            <End Role="Admin" EntitySet="Admin" />
+          </AssociationSet>
+          <AssociationSet Name="fk_Division_Conferense1" Association="Self.fk_Division_Conferense1">
+            <End Role="Conferense" EntitySet="Conferense" />
+            <End Role="Division" EntitySet="Division" />
+          </AssociationSet>
+          <AssociationSet Name="fk_Team_Division1" Association="Self.fk_Team_Division1">
+            <End Role="Division" EntitySet="Division" />
+            <End Role="Team" EntitySet="Team" />
+          </AssociationSet>
+          <AssociationSet Name="fk_MatchUp_MatchUpType1" Association="Self.fk_MatchUp_MatchUpType1">
+            <End Role="MatchUpType" EntitySet="MatchUpType" />
+            <End Role="MatchUp" EntitySet="MatchUp" />
+          </AssociationSet>
+          <AssociationSet Name="fk_MatchUp_Season1" Association="Self.fk_MatchUp_Season1">
+            <End Role="Season" EntitySet="Season" />
+            <End Role="MatchUp" EntitySet="MatchUp" />
+          </AssociationSet>
+          <AssociationSet Name="fk_MatchUpDetail_MatchUp1" Association="Self.fk_MatchUpDetail_MatchUp1">
+            <End Role="MatchUp" EntitySet="MatchUp" />
+            <End Role="MatchUpDetail" EntitySet="MatchUpDetail" />
+          </AssociationSet>
+          <AssociationSet Name="fk_MatchUpLog_MatchUp1" Association="Self.fk_MatchUpLog_MatchUp1">
+            <End Role="MatchUp" EntitySet="MatchUp" />
+            <End Role="MatchUpLog" EntitySet="MatchUpLog" />
+          </AssociationSet>
+          <AssociationSet Name="fk_PlayerStatistics_MatchUp1" Association="Self.fk_PlayerStatistics_MatchUp1">
+            <End Role="MatchUp" EntitySet="MatchUp" />
+            <End Role="PlayerStatistics" EntitySet="PlayerStatistics" />
+          </AssociationSet>
+          <AssociationSet Name="fk_MatchUpLog_Player1" Association="Self.fk_MatchUpLog_Player1">
+            <End Role="Player" EntitySet="Player" />
+            <End Role="MatchUpLog" EntitySet="MatchUpLog" />
+          </AssociationSet>
+          <AssociationSet Name="fk_MatchUpLog_Team1" Association="Self.fk_MatchUpLog_Team1">
+            <End Role="Team" EntitySet="Team" />
+            <End Role="MatchUpLog" EntitySet="MatchUpLog" />
+          </AssociationSet>
+          <AssociationSet Name="fk_Player_Position1" Association="Self.fk_Player_Position1">
+            <End Role="Position" EntitySet="Position" />
+            <End Role="Player" EntitySet="Player" />
+          </AssociationSet>
+          <AssociationSet Name="fk_PlayerTeam_Player1" Association="Self.fk_PlayerTeam_Player1">
+            <End Role="Player" EntitySet="Player" />
+            <End Role="PlayerTeam" EntitySet="PlayerTeam" />
+          </AssociationSet>
+          <AssociationSet Name="fk_PlayerStatistics_PlayerTeam1" Association="Self.fk_PlayerStatistics_PlayerTeam1">
+            <End Role="PlayerTeam" EntitySet="PlayerTeam" />
+            <End Role="PlayerStatistics" EntitySet="PlayerStatistics" />
+          </AssociationSet>
+          <AssociationSet Name="fk_PlayerStatistics_Team1" Association="Self.fk_PlayerStatistics_Team1">
+            <End Role="Team" EntitySet="Team" />
+            <End Role="PlayerStatistics" EntitySet="PlayerStatistics" />
+          </AssociationSet>
+          <AssociationSet Name="fk_PlayerTeam_Season1" Association="Self.fk_PlayerTeam_Season1">
+            <End Role="Season" EntitySet="Season" />
+            <End Role="PlayerTeam" EntitySet="PlayerTeam" />
+          </AssociationSet>
+          <AssociationSet Name="fk_PlayerTeam_Team1" Association="Self.fk_PlayerTeam_Team1">
+            <End Role="Team" EntitySet="Team" />
+            <End Role="PlayerTeam" EntitySet="PlayerTeam" />
+          </AssociationSet>
+          <AssociationSet Name="fk_PostSeason_Season1" Association="Self.fk_PostSeason_Season1">
+            <End Role="Season" EntitySet="Season" />
+            <End Role="PostSeason" EntitySet="PostSeason" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="Хранилище NbacontModelContainer" CdmEntityContainer="NbacontEntities">
+          <EntitySetMapping Name="ActionType">
+            <EntityTypeMapping TypeName="NbacontModel.ActionType">
+              <MappingFragment StoreEntitySet="ActionType">
+                <ScalarProperty Name="idActionType" ColumnName="idActionType" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Admin">
+            <EntityTypeMapping TypeName="NbacontModel.Admin">
+              <MappingFragment StoreEntitySet="Admin">
+                <ScalarProperty Name="idAdmin" ColumnName="idAdmin" />
+                <ScalarProperty Name="Phone" ColumnName="Phone" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Password" ColumnName="Password" />
+                <ScalarProperty Name="Gender" ColumnName="Gender" />
+                <ScalarProperty Name="DateOfBirth" ColumnName="DateOfBirth" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="Role_Role" ColumnName="Role_Role" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Conferense">
+            <EntityTypeMapping TypeName="NbacontModel.Conferense">
+              <MappingFragment StoreEntitySet="Conferense">
+                <ScalarProperty Name="idConferense" ColumnName="idConferense" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Country">
+            <EntityTypeMapping TypeName="NbacontModel.Country">
+              <MappingFragment StoreEntitySet="Country">
+                <ScalarProperty Name="CountryCode" ColumnName="CountryCode" />
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="idCountry" ColumnName="idCountry" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Division">
+            <EntityTypeMapping TypeName="NbacontModel.Division">
+              <MappingFragment StoreEntitySet="Division">
+                <ScalarProperty Name="idDivision" ColumnName="idDivision" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Conferense_idConferense" ColumnName="Conferense_idConferense" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="MatchUp">
+            <EntityTypeMapping TypeName="NbacontModel.MatchUp">
+              <MappingFragment StoreEntitySet="MatchUp">
+                <ScalarProperty Name="idMatchUp" ColumnName="idMatchUp" />
+                <ScalarProperty Name="Starttime" ColumnName="Starttime" />
+                <ScalarProperty Name="Team_Away_Score" ColumnName="Team_Away_Score" />
+                <ScalarProperty Name="Team_Home_Score" ColumnName="Team_Home_Score" />
+                <ScalarProperty Name="Location" ColumnName="Location" />
+                <ScalarProperty Name="Status" ColumnName="Status" />
+                <ScalarProperty Name="CurrentQuarter" ColumnName="CurrentQuarter" />
+                <ScalarProperty Name="Team_Away" ColumnName="Team_Away" />
+                <ScalarProperty Name="Team_Home" ColumnName="Team_Home" />
+                <ScalarProperty Name="Season_idSeason" ColumnName="Season_idSeason" />
+                <ScalarProperty Name="MatchUpType_idMatchUpType" ColumnName="MatchUpType_idMatchUpType" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="MatchUpDetail">
+            <EntityTypeMapping TypeName="NbacontModel.MatchUpDetail">
+              <MappingFragment StoreEntitySet="MatchUpDetail">
+                <ScalarProperty Name="idMatchUpDetail" ColumnName="idMatchUpDetail" />
+                <ScalarProperty Name="Quarter" ColumnName="Quarter" />
+                <ScalarProperty Name="MatchUp_idMatchUp" ColumnName="MatchUp_idMatchUp" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="MatchUpLog">
+            <EntityTypeMapping TypeName="NbacontModel.MatchUpLog">
+              <MappingFragment StoreEntitySet="MatchUpLog">
+                <ScalarProperty Name="idMatchUpLog" ColumnName="idMatchUpLog" />
+                <ScalarProperty Name="Quarter" ColumnName="Quarter" />
+                <ScalarProperty Name="OccurTime" ColumnName="OccurTime" />
+                <ScalarProperty Name="Remar" ColumnName="Remar" />
+                <ScalarProperty Name="MatchUp_idMatchUp" ColumnName="MatchUp_idMatchUp" />
+                <ScalarProperty Name="Team_idTeam" ColumnName="Team_idTeam" />
+                <ScalarProperty Name="Player_idPlayer" ColumnName="Player_idPlayer" />
+                <ScalarProperty Name="ActionType_idActionType" ColumnName="ActionType_idActionType" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="MatchUpType">
+            <EntityTypeMapping TypeName="NbacontModel.MatchUpType">
+              <MappingFragment StoreEntitySet="MatchUpType">
+                <ScalarProperty Name="idMatchUpType" ColumnName="idMatchUpType" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Picture">
+            <EntityTypeMapping TypeName="NbacontModel.Picture">
+              <MappingFragment StoreEntitySet="Picture">
+                <ScalarProperty Name="idPicture" ColumnName="idPicture" />
+                <ScalarProperty Name="Img" ColumnName="Img" />
+                <ScalarProperty Name="Descriotion" ColumnName="Descriotion" />
+                <ScalarProperty Name="NumberOfLike" ColumnName="NumberOfLike" />
+                <ScalarProperty Name="CreateTime" ColumnName="CreateTime" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Player">
+            <EntityTypeMapping TypeName="NbacontModel.Player">
+              <MappingFragment StoreEntitySet="Player">
+                <ScalarProperty Name="idPlayer" ColumnName="idPlayer" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="JoinYear" ColumnName="JoinYear" />
+                <ScalarProperty Name="Height" ColumnName="Height" />
+                <ScalarProperty Name="Weight" ColumnName="Weight" />
+                <ScalarProperty Name="DateOfBirth" ColumnName="DateOfBirth" />
+                <ScalarProperty Name="College" ColumnName="College" />
+                <ScalarProperty Name="img" ColumnName="img" />
+                <ScalarProperty Name="IsRet" ColumnName="IsRet" />
+                <ScalarProperty Name="RetrimentTime" ColumnName="RetrimentTime" />
+                <ScalarProperty Name="CountryCode" ColumnName="CountryCode" />
+                <ScalarProperty Name="Position_idPosition" ColumnName="Position_idPosition" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="PlayerStatistics">
+            <EntityTypeMapping TypeName="NbacontModel.PlayerStatistics">
+              <MappingFragment StoreEntitySet="PlayerStatistics">
+                <ScalarProperty Name="idPlayerStatistics" ColumnName="idPlayerStatistics" />
+                <ScalarProperty Name="IsStarting" ColumnName="IsStarting" />
+                <ScalarProperty Name="Min" ColumnName="Min" />
+                <ScalarProperty Name="Point" ColumnName="Point" />
+                <ScalarProperty Name="Assist" ColumnName="Assist" />
+                <ScalarProperty Name="FieldGoalMade" ColumnName="FieldGoalMade" />
+                <ScalarProperty Name="FieldGoalMissed" ColumnName="FieldGoalMissed" />
+                <ScalarProperty Name="C3_PointFieldGoalMade" ColumnName="3-PointFieldGoalMade" />
+                <ScalarProperty Name="C3_pointFieldGoalMissed" ColumnName="3-pointFieldGoalMissed" />
+                <ScalarProperty Name="FreethrowMade" ColumnName="FreethrowMade" />
+                <ScalarProperty Name="FreethrowMissed" ColumnName="FreethrowMissed" />
+                <ScalarProperty Name="Rebound" ColumnName="Rebound" />
+                <ScalarProperty Name="OFFR" ColumnName="OFFR" />
+                <ScalarProperty Name="DFFR" ColumnName="DFFR" />
+                <ScalarProperty Name="Steal" ColumnName="Steal" />
+                <ScalarProperty Name="Block" ColumnName="Block" />
+                <ScalarProperty Name="Turnover" ColumnName="Turnover" />
+                <ScalarProperty Name="Foul" ColumnName="Foul" />
+                <ScalarProperty Name="MatchUp_idMatchUp" ColumnName="MatchUp_idMatchUp" />
+                <ScalarProperty Name="Team_idTeam" ColumnName="Team_idTeam" />
+                <ScalarProperty Name="PlayerTeam_idPlayerTeam" ColumnName="PlayerTeam_idPlayerTeam" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="PlayerTeam">
+            <EntityTypeMapping TypeName="NbacontModel.PlayerTeam">
+              <MappingFragment StoreEntitySet="PlayerTeam">
+                <ScalarProperty Name="idPlayerTeam" ColumnName="idPlayerTeam" />
+                <ScalarProperty Name="ShirtNumber" ColumnName="ShirtNumber" />
+                <ScalarProperty Name="Salary" ColumnName="Salary" />
+                <ScalarProperty Name="StarterIndezx" ColumnName="StarterIndezx" />
+                <ScalarProperty Name="Player_idPlayer" ColumnName="Player_idPlayer" />
+                <ScalarProperty Name="Team_idTeam" ColumnName="Team_idTeam" />
+                <ScalarProperty Name="Season_idSeason" ColumnName="Season_idSeason" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Position">
+            <EntityTypeMapping TypeName="NbacontModel.Position">
+              <MappingFragment StoreEntitySet="Position">
+                <ScalarProperty Name="idPosition" ColumnName="idPosition" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="abbr" ColumnName="abbr" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="PostSeason">
+            <EntityTypeMapping TypeName="NbacontModel.PostSeason">
+              <MappingFragment StoreEntitySet="PostSeason">
+                <ScalarProperty Name="idPostSeason" ColumnName="idPostSeason" />
+                <ScalarProperty Name="Rank" ColumnName="Rank" />
+                <ScalarProperty Name="Season_idSeason" ColumnName="Season_idSeason" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Role">
+            <EntityTypeMapping TypeName="NbacontModel.Role">
+              <MappingFragment StoreEntitySet="Role">
+                <ScalarProperty Name="Role1" ColumnName="Role" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Season">
+            <EntityTypeMapping TypeName="NbacontModel.Season">
+              <MappingFragment StoreEntitySet="Season">
+                <ScalarProperty Name="idSeason" ColumnName="idSeason" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Team">
+            <EntityTypeMapping TypeName="NbacontModel.Team">
+              <MappingFragment StoreEntitySet="Team">
+                <ScalarProperty Name="idTeam" ColumnName="idTeam" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Coach" ColumnName="Coach" />
+                <ScalarProperty Name="Abbr" ColumnName="Abbr" />
+                <ScalarProperty Name="Stadium" ColumnName="Stadium" />
+                <ScalarProperty Name="Logo" ColumnName="Logo" />
+                <ScalarProperty Name="Division_idDivision" ColumnName="Division_idDivision" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="Нет" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="f465f435f330421d992a5b718a2fe6b4" Name="Diagram1">
+        <EntityTypeShape EntityType="NbacontModel.ActionType" Width="1.5" PointX="6" PointY="6" IsExpanded="true" />
+        <EntityTypeShape EntityType="NbacontModel.Admin" Width="1.5" PointX="11" PointY="1" IsExpanded="true" />
+        <EntityTypeShape EntityType="NbacontModel.Conferense" Width="1.5" PointX="8.5" PointY="15.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="NbacontModel.Country" Width="1.5" PointX="3.875" PointY="5.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="NbacontModel.Division" Width="1.5" PointX="10.75" PointY="15.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="NbacontModel.MatchUp" Width="1.5" PointX="3" PointY="9" IsExpanded="true" />
+        <EntityTypeShape EntityType="NbacontModel.MatchUpDetail" Width="1.5" PointX="5.25" PointY="14.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="NbacontModel.MatchUpLog" Width="1.5" PointX="8.25" PointY="9.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="NbacontModel.MatchUpType" Width="1.5" PointX="0.75" PointY="7.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="NbacontModel.Picture" Width="1.5" PointX="0.75" PointY="3.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="NbacontModel.Player" Width="1.5" PointX="6" PointY="1.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="NbacontModel.PlayerStatistics" Width="1.5" PointX="11.25" PointY="8.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="NbacontModel.PlayerTeam" Width="1.5" PointX="6" PointY="9.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="NbacontModel.Position" Width="1.5" PointX="3.75" PointY="2.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="NbacontModel.PostSeason" Width="1.5" PointX="2.5" PointY="14.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="NbacontModel.Role" Width="1.5" PointX="8.75" PointY="1.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="NbacontModel.Season" Width="1.5" PointX="0.75" PointY="10.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="NbacontModel.Team" Width="1.5" PointX="13" PointY="14.875" IsExpanded="true" />
+        <AssociationConnector Association="NbacontModel.fk_MatchUpLog_ActionType1" ManuallyRouted="false" />
+        <AssociationConnector Association="NbacontModel.fk_Admin_Role" ManuallyRouted="false" />
+        <AssociationConnector Association="NbacontModel.fk_Division_Conferense1" ManuallyRouted="false" />
+        <AssociationConnector Association="NbacontModel.fk_Team_Division1" ManuallyRouted="false" />
+        <AssociationConnector Association="NbacontModel.fk_MatchUp_MatchUpType1" ManuallyRouted="false" />
+        <AssociationConnector Association="NbacontModel.fk_MatchUp_Season1" ManuallyRouted="false" />
+        <AssociationConnector Association="NbacontModel.fk_MatchUpDetail_MatchUp1" ManuallyRouted="false" />
+        <AssociationConnector Association="NbacontModel.fk_MatchUpLog_MatchUp1" ManuallyRouted="false" />
+        <AssociationConnector Association="NbacontModel.fk_PlayerStatistics_MatchUp1" ManuallyRouted="false" />
+        <AssociationConnector Association="NbacontModel.fk_MatchUpLog_Player1" ManuallyRouted="false" />
+        <AssociationConnector Association="NbacontModel.fk_MatchUpLog_Team1" ManuallyRouted="false" />
+        <AssociationConnector Association="NbacontModel.fk_Player_Position1" ManuallyRouted="false" />
+        <AssociationConnector Association="NbacontModel.fk_PlayerTeam_Player1" ManuallyRouted="false" />
+        <AssociationConnector Association="NbacontModel.fk_PlayerStatistics_PlayerTeam1" ManuallyRouted="false" />
+        <AssociationConnector Association="NbacontModel.fk_PlayerStatistics_Team1" ManuallyRouted="false" />
+        <AssociationConnector Association="NbacontModel.fk_PlayerTeam_Season1" ManuallyRouted="false" />
+        <AssociationConnector Association="NbacontModel.fk_PlayerTeam_Team1" ManuallyRouted="false" />
+        <AssociationConnector Association="NbacontModel.fk_PostSeason_Season1" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

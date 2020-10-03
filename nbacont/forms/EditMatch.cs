@@ -10,11 +10,18 @@ using System.Windows.Forms;
 
 namespace nbacont
 {
-    public partial class Form1 : Form
+    public partial class EditMatch : Form
     {
-        public Form1()
+        string cellContent;
+        public EditMatch(string cellContent)
         {
             InitializeComponent();
+            this.cellContent = cellContent;
+        }
+
+        private void EditMatch_Load(object sender, EventArgs e)
+        {
+            textBox1.Text = cellContent;
         }
     }
 }
